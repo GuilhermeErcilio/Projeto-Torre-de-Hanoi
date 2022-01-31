@@ -1,0 +1,36 @@
+package torre_hanoi;
+
+import java.util.Scanner;
+
+public class Torre_Hanoi {
+
+    static int deslocação ;
+    
+    public static void main(String[] args) {
+        
+   Scanner Hanoi = new Scanner (System.in);
+   System.out.println("Quantidade de discos: ");
+   
+   int T_discos = Hanoi.nextInt();
+   
+   TorreHanoi(T_discos, "baseA", "baseB", "baseC");
+   
+   System.out.println("Foi concluido com : "+deslocação +" Movimentos, Utilizando " +T_discos+ " discos. ");
+    }
+    
+    public static void TorreHanoi (int discos, String filaA, String filaB, String filaC){
+    
+        if(discos == 1){
+                deslocação  = deslocação  + 1;
+            System.out.println(deslocação  +  ": Mover disco " +discos+" da " +filaA+ " até "+filaC);
+            
+        }else{
+           TorreHanoi(discos - 1, filaA, filaC, filaB); 
+           
+           deslocação  = deslocação  + 1;
+           System.out.println(deslocação +": Mover disco " +discos+" da "+filaA+" até "+filaC);
+           TorreHanoi(discos - 1, filaB, filaA, filaC); 
+        }
+    }
+}
+  
